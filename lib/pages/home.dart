@@ -67,7 +67,9 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/library");
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(

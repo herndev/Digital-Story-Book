@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:story/pages/home.dart';
+import 'package:story/pages/library.dart';
 import 'package:story/pages/signin.dart';
 import 'component/colors.dart';
 
@@ -17,6 +18,7 @@ void main() {
     routes: {
       "/": (_) => SignInPage(),
       "/home": (_) => HomePage(),
+      "/library": (_) => LibraryPage(),
     },
     theme: ThemeData(
       primaryColor: hc.green,
