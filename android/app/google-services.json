@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "967200466778",
+    "project_id": "digital-story-book",
+    "storage_bucket": "digital-story-book.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:967200466778:android:484846498a8fd2b2b07563",
+        "android_client_info": {
+          "package_name": "com.herndev.storybook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "967200466778-o79upjjn5m4d7d15t4udsffv3tef6pqk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn4TyXJCUhTDkOSpmK-9OBL4veIsFv0yQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "967200466778-o79upjjn5m4d7d15t4udsffv3tef6pqk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

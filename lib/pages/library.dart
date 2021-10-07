@@ -16,97 +16,94 @@ class _LibraryPageState extends State<LibraryPage> {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: hc.lime,
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.amber[300],
         elevation: 0,
+        foregroundColor: Colors.cyan[700],
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Digital Story Book"),
+            Text(
+              "Digital Story Book",
+              style: TextStyle(
+                color: Colors.cyan[700],
+              ),
+            ),
           ],
         ),
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Image.asset("assets/wave.png"),
-            Expanded(
-              child: Container(
-                width: double.infinity,
-                padding: EdgeInsets.all(15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Library",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Divider(
-                      thickness: 2,
-                    ),
-                    Wrap(
-                      direction: Axis.horizontal,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                width: size.width * 0.25,
-                                child: Image.asset("assets/book-icon.png"),
-                              ),
-                              Text("Photosythesis")
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                width: size.width * 0.25,
-                                child: Image.asset("assets/book-icon.png"),
-                              ),
-                              Text("Photosythesis")
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                width: size.width * 0.25,
-                                child: Image.asset("assets/book-icon.png"),
-                              ),
-                              Text("Photosythesis")
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                width: size.width * 0.25,
-                                child: Image.asset("assets/book-icon.png"),
-                              ),
-                              Text("Photosythesis")
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+      body: Center(
+        child: Container(
+          width: double.infinity,
+          padding: EdgeInsets.all(15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Library",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
-            ),
-            Image.asset("assets/wave2.png"),
-          ],
+              Divider(
+                thickness: 2,
+              ),
+              Wrap(
+                direction: Axis.horizontal,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: size.width * 0.25,
+                          child: Image.asset("assets/book-icon.png"),
+                        ),
+                        Text("Photosythesis")
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: size.width * 0.25,
+                          child: Image.asset("assets/book-icon.png"),
+                        ),
+                        Text("Photosythesis")
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: size.width * 0.25,
+                          child: Image.asset("assets/book-icon.png"),
+                        ),
+                        Text("Photosythesis")
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: size.width * 0.25,
+                          child: Image.asset("assets/book-icon.png"),
+                        ),
+                        Text("Photosythesis")
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: null,
