@@ -73,10 +73,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Text(
               "Select Action",
-              style: TextStyle(
-                  // fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: Colors.white),
+              style: TextStyle(fontSize: 16, color: Colors.white),
             ),
             SizedBox(
               height: 15,
@@ -113,7 +110,6 @@ class _HomePageState extends State<HomePage> {
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
-                      // side: BorderSide(color: Colors.red)
                     ),
                   ),
                 ),
@@ -151,7 +147,6 @@ class _HomePageState extends State<HomePage> {
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
-                      // side: BorderSide(color: Colors.red)
                     ),
                   ),
                 ),
