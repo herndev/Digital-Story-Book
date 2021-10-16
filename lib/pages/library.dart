@@ -16,7 +16,7 @@ class _LibraryPageState extends State<LibraryPage> {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.cyan[700],
       appBar: AppBar(
         backgroundColor: Colors.amber[300],
         elevation: 0,
@@ -24,7 +24,7 @@ class _LibraryPageState extends State<LibraryPage> {
         title: Row(
           children: [
             Text(
-              "Digital Story Book",
+              "SCIFLIX",
               style: TextStyle(
                 color: Colors.cyan[700],
               ),
@@ -43,10 +43,14 @@ class _LibraryPageState extends State<LibraryPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   "Library",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
               ),
               Divider(
+                color: Colors.white,
                 thickness: 2,
               ),
               Wrap(
@@ -60,7 +64,10 @@ class _LibraryPageState extends State<LibraryPage> {
                           width: size.width * 0.25,
                           child: Image.asset("assets/book-icon.png"),
                         ),
-                        Text("Photosythesis")
+                        Text(
+                          "Photosythesis",
+                          style: TextStyle(color: Colors.white),
+                        )
                       ],
                     ),
                   ),
@@ -72,7 +79,10 @@ class _LibraryPageState extends State<LibraryPage> {
                           width: size.width * 0.25,
                           child: Image.asset("assets/book-icon.png"),
                         ),
-                        Text("Photosythesis")
+                        Text(
+                          "Photosythesis",
+                          style: TextStyle(color: Colors.white),
+                        )
                       ],
                     ),
                   ),
@@ -84,7 +94,10 @@ class _LibraryPageState extends State<LibraryPage> {
                           width: size.width * 0.25,
                           child: Image.asset("assets/book-icon.png"),
                         ),
-                        Text("Photosythesis")
+                        Text(
+                          "Photosythesis",
+                          style: TextStyle(color: Colors.white),
+                        )
                       ],
                     ),
                   ),
@@ -96,7 +109,10 @@ class _LibraryPageState extends State<LibraryPage> {
                           width: size.width * 0.25,
                           child: Image.asset("assets/book-icon.png"),
                         ),
-                        Text("Photosythesis")
+                        Text(
+                          "Photosythesis",
+                          style: TextStyle(color: Colors.white),
+                        )
                       ],
                     ),
                   ),

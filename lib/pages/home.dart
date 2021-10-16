@@ -1,11 +1,15 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:story/component/colors.dart';
 import 'package:story/component/input.dart';
 import 'package:story/providers/google_sign_in.dart';
+import 'package:story/services/query.dart';
 
 var hc = Hcolor();
+var hq = Hquery();
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,6 +21,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   var name = TextEditingController();
   var idnumber = TextEditingController();
+  var isNew = true;
+  var email = "";
 
   @override
   void dispose() {
@@ -28,7 +34,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     final user = FirebaseAuth.instance.currentUser!;
 
     return Scaffold(
@@ -41,15 +46,24 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Digital Story Book",
+              "SCIFLIX",
               style: TextStyle(
                 color: Colors.cyan[700],
               ),
             ),
             GestureDetector(
-              onTap: () {
+              onTap: () async {
                 name.text = user.displayName!;
-                print(user.uid);
+                email = user.email!;
+
+                var userData = await hq.getDataByData("users", "email", email);
+                if (!["", null, false, 0].contains(userData)) {
+                  isNew = false;
+                  name.text = userData['name'];
+                  idnumber.text = userData['idNumber'];
+                  setState(() {});
+                }
+
                 openBottomModal();
               },
               child: (user.photoURL == null)
@@ -161,13 +175,13 @@ class _HomePageState extends State<HomePage> {
   openBottomModal() {
     showModalBottomSheet(
         context: context,
-        isScrollControlled: true,
+        // isScrollControlled: true,
         builder: (context) {
           return StatefulBuilder(builder: (BuildContext context,
               StateSetter setState /*You can rename this!*/) {
             return Container(
               color: Color(0xFF737373),
-              height: 450,
+              height: 500,
               child: Container(
                   decoration: BoxDecoration(
                       color: Theme.of(context).canvasColor,
@@ -200,7 +214,35 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () async {
+                              var data = {
+                                "name": name.text,
+                                "idNumber": idnumber.text,
+                                "email": email,
+                              };
+
+                              if (isNew) {
+                                await hq.push("users", data);
+                              } else {
+                                var ids = await hq.getIDs("users");
+                                for (var id in ids) {
+                                  var userData =
+                                      await hq.getDataByID("users", id);
+                                  if (userData['email'] == email) {
+                                    await hq.update("users", id, data);
+                                    return;
+                                  }
+                                }
+                              }
+
+                              Navigator.pop(context);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content:
+                                      Text("User data successfully updated!"),
+                                ),
+                              );
+                            },
                             child: Text(
                               "Update data",
                               style: TextStyle(color: Colors.white),
@@ -241,35 +283,34 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(
                           height: 20,
                         ),
-                        Container(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              final provider =
-                                  Provider.of<GoogleSignInProvider>(context,
-                                      listen: false);
-                              provider.logout();
-                              Navigator.pushNamed(context, "/");
-                            },
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.logout),
-                                Text(
-                                  " Logout",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ],
-                            ),
-                            style:
-                                ElevatedButton.styleFrom(primary: Colors.red),
-                          ),
-                        ),
                         Padding(
                           padding: EdgeInsets.only(
                               bottom: MediaQuery.of(context).viewInsets.bottom),
-                          child: SizedBox(),
-                        )
+                          child: Container(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                final provider =
+                                    Provider.of<GoogleSignInProvider>(context,
+                                        listen: false);
+                                provider.logout();
+                                Navigator.pushNamed(context, "/");
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.logout),
+                                  Text(
+                                    " Logout",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ],
+                              ),
+                              style:
+                                  ElevatedButton.styleFrom(primary: Colors.red),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   )),
