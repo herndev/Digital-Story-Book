@@ -32,23 +32,27 @@ class _SignInPageState extends State<SignInPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: [
-            RichText(
-              text: TextSpan(
-                text: "S",
-                children: [
-                  TextSpan(
-                    text: "CIFLIX",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24,
-                        color: Colors.amber[300]),
-                  )
-                ],
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
-                    color: Colors.white),
-              ),
+            // RichText(
+            //   text: TextSpan(
+            //     text: "S",
+            //     children: [
+            //       TextSpan(
+            //         text: "CIFLIX",
+            //         style: TextStyle(
+            //             fontWeight: FontWeight.bold,
+            //             fontSize: 24,
+            //             color: Colors.amber[300]),
+            //       )
+            //     ],
+            //     style: TextStyle(
+            //         fontWeight: FontWeight.bold,
+            //         fontSize: 24,
+            //         color: Colors.white),
+            //   ),
+            // ),
+            CircleAvatar(
+              backgroundImage: AssetImage("assets/logo.jpg"),
+              radius: 100,
             ),
             SizedBox(
               height: 30,

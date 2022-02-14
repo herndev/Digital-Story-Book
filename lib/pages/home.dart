@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "SCIFLIX",
+              "SciEflix",
               style: TextStyle(
                 color: Colors.cyan[700],
               ),

@@ -24,7 +24,7 @@ class _LibraryPageState extends State<LibraryPage> {
         title: Row(
           children: [
             Text(
-              "SCIFLIX",
+              "SciEflix",
               style: TextStyle(
                 color: Colors.cyan[700],
               ),
